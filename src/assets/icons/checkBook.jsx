@@ -1,0 +1,20 @@
+import * as React from "react";
+import Svg, { Path, Rect } from "react-native-svg";
+export const CheckBook = (props) => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={props.size}
+    height={props.size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="feather feather-clipboard"
+    {...props}
+  >
+    <Path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+    <Rect x={8} y={2} width={8} height={4} rx={1} ry={1} />
+  </Svg>
+);
