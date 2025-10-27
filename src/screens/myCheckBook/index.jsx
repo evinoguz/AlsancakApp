@@ -1,5 +1,5 @@
 import React, {useMemo, useState} from 'react';
-import {View} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import {Colors} from '../../theme/colors';
 import CustomInput from '../../components/ui/customInput';
 import {Search} from '../../assets/icons';
@@ -110,7 +110,7 @@ export const MyCheckBook = () => {
   ];
 
   return (
-    <View style={defaultStyles.mainContainer}>
+    <SafeAreaView style={defaultStyles.mainContainer}>
       <View style={defaultStyles.searchContainer}>
         <CustomInput
           onChangeText={setSearch}
@@ -134,6 +134,6 @@ export const MyCheckBook = () => {
         ListEmptyComponent={<ListEmptyArea error={error} />}
         style={{minHeight: 300}}
       />
-    </View>
+    </SafeAreaView>
   );
 };

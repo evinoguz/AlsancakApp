@@ -1,5 +1,5 @@
 import React, {useMemo, useState} from 'react';
-import {StyleSheet, Text, View, FlatList} from 'react-native';
+import {StyleSheet, Text, View, FlatList, SafeAreaView} from 'react-native';
 import {Colors} from '../../theme/colors';
 import CustomInput from '../../components/ui/customInput';
 import {Search} from '../../assets/icons';
@@ -34,7 +34,7 @@ export const CariList = () => {
   }));
 
   return (
-    <View style={defaultStyles.mainContainer}>
+    <SafeAreaView style={defaultStyles.mainContainer}>
       <View style={defaultStyles.searchContainer}>
         <CustomInput
           onChangeText={setSearch}
@@ -63,7 +63,7 @@ export const CariList = () => {
           removeClippedSubviews={true}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

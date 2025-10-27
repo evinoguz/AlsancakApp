@@ -1,14 +1,14 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet, SafeAreaView} from 'react-native';
 import LoadingDots from '../../components/ui/loadingDots';
-import { defaultStyles } from '../../styles/defaultStyle';
-import { Colors } from '../../theme/colors';
+import {defaultStyles} from '../../styles/defaultStyle';
+import {Colors} from '../../theme/colors';
 
 export const Splash = () => {
   return (
-    <View style={[styles.container, defaultStyles.loadingDim]}>
+    <SafeAreaView style={[styles.container, defaultStyles.loadingDim]}>
       <LoadingDots />
-    </View>
+    </SafeAreaView>
   );
 };
 

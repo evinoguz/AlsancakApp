@@ -1,5 +1,5 @@
 import React, {useMemo, useState} from 'react';
-import {View} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import {Colors} from '../../theme/colors';
 import {Search} from '../../assets/icons';
 import {defaultStyles} from '../../styles/defaultStyle';
@@ -127,7 +127,7 @@ export const CariEkstre = () => {
   ];
 
   return (
-    <View style={defaultStyles.mainContainer}>
+    <SafeAreaView style={defaultStyles.mainContainer}>
       {/* Cari DropDown */}
       <View style={defaultStyles.searchContainer}>
         <CustomDropDown
@@ -182,6 +182,6 @@ export const CariEkstre = () => {
           />
         </View>
       )}
-    </View>
+    </SafeAreaView>
   );
 };

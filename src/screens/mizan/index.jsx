@@ -1,5 +1,5 @@
 import React, {useMemo, useState} from 'react';
-import {Text, View, Linking, TouchableOpacity} from 'react-native';
+import {Text, View, Linking, TouchableOpacity, SafeAreaView} from 'react-native';
 import {Colors} from '../../theme/colors';
 import CustomInput from '../../components/ui/customInput';
 import {Search} from '../../assets/icons';
@@ -112,7 +112,7 @@ export const Mizan = () => {
   ];
 
   return (
-    <View style={defaultStyles.mainContainer}>
+    <SafeAreaView style={defaultStyles.mainContainer}>
       <View style={defaultStyles.searchContainer}>
         <CustomInput
           onChangeText={setSearch}
@@ -140,6 +140,6 @@ export const Mizan = () => {
         ListEmptyComponent={<ListEmptyArea error={error} />}
         style={{minHeight: 300}}
       />
-    </View>
+    </SafeAreaView>
   );
 };

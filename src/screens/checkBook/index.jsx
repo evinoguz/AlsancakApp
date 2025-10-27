@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import {CustomRadioButton} from '../../components/ui/customRadioButton';
 
 import CheckBookKasadaki from '../../components/reports/checkBookKasadaki';
@@ -14,7 +14,7 @@ export const CheckBook = () => {
   ];
 
   return (
-    <View style={defaultStyles.mainContainer}>
+    <SafeAreaView style={defaultStyles.mainContainer}>
       <CustomRadioButton
         items={islemTipItems}
         onSelect={val => setSelectedIslemTip(val)}
@@ -25,6 +25,6 @@ export const CheckBook = () => {
       ) : (
         <CheckBookTakastaki />
       )}
-    </View>
+    </SafeAreaView>
   );
 };

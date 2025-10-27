@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, Image, SafeAreaView} from 'react-native';
 import {defaultStyles} from '../../styles/defaultStyle';
 import CustomInput from '../../components/ui/customInput';
 import CustomButton from '../../components/ui/customButton';
@@ -50,7 +50,7 @@ export const LoginScreen = () => {
   };
 
   return (
-    <View
+    <SafeAreaView
       style={[
         defaultStyles.container,
         styles.container,
@@ -101,7 +101,7 @@ export const LoginScreen = () => {
           </ScrollView>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

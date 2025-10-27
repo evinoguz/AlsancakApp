@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {performLogout} from '../../store/actions/authActions';
 import {width} from '../../utils/constants';
@@ -19,74 +19,76 @@ export const Profile = () => {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      {/* Profil Kartı */}
-      <View style={styles.profileCard}>
-        <Avatar name={userInfo?.user?.adi} surname={userInfo?.user?.soyadi} />
+    <SafeAreaView style={{flex: 1}}>
+      <ScrollView contentContainerStyle={styles.container}>
+        {/* Profil Kartı */}
+        <View style={styles.profileCard}>
+          <Avatar name={userInfo?.user?.adi} surname={userInfo?.user?.soyadi} />
 
-        <Text selectable style={styles.name}>
-          {userInfo?.user?.adi} {userInfo?.user?.soyadi}
-        </Text>
-        <Text selectable style={styles.username}>
-          @{userInfo?.user?.kuladi}
-        </Text>
-        <Text selectable style={styles.role}>
-          {userInfo?.user?.tip} • {userInfo?.user?.yetki}
-        </Text>
-      </View>
+          <Text selectable style={styles.name}>
+            {userInfo?.user?.adi} {userInfo?.user?.soyadi}
+          </Text>
+          <Text selectable style={styles.username}>
+            @{userInfo?.user?.kuladi}
+          </Text>
+          <Text selectable style={styles.role}>
+            {userInfo?.user?.tip} • {userInfo?.user?.yetki}
+          </Text>
+        </View>
 
-      {/* Ana Bilgiler */}
-      <View style={styles.infoWrapper}>
-        <Text selectable style={styles.sectionTitle}>
-          Ana Bilgiler
-        </Text>
-        <View style={styles.infoRow}>
-          <Text selectable style={styles.label}>
-            Şirket Ünvanı:
+        {/* Ana Bilgiler */}
+        <View style={styles.infoWrapper}>
+          <Text selectable style={styles.sectionTitle}>
+            Ana Bilgiler
           </Text>
-          <Text selectable style={styles.value}>
-            {userInfo?.user?.sirketunv}
+          <View style={styles.infoRow}>
+            <Text selectable style={styles.label}>
+              Şirket Ünvanı:
+            </Text>
+            <Text selectable style={styles.value}>
+              {userInfo?.user?.sirketunv}
+            </Text>
+          </View>
+          <View style={styles.infoRow}>
+            <Text selectable style={styles.label}>
+              Kısa Ad:
+            </Text>
+            <Text selectable style={styles.value}>
+              {userInfo?.user?.kisaad}
+            </Text>
+          </View>
+          <View style={styles.infoRow}>
+            <Text selectable style={styles.label}>
+              Renk:
+            </Text>
+            <Text selectable style={styles.value}>
+              {userInfo?.user?.renk}
+            </Text>
+          </View>
+          <View style={styles.separator} />
+          <Text selectable style={styles.sectionTitle}>
+            Ek Bilgiler
           </Text>
+          <View style={styles.infoRow}>
+            <Text selectable style={styles.label}>
+              Hesap Oluşturma:
+            </Text>
+            <Text selectable style={styles.value}>
+              {formatDate(userInfo?.user?.CRDate)}
+            </Text>
+          </View>
+          {/* Logout Butonu */}
+          <View style={styles.logoutWrapper}>
+            <CustomButton
+              title="Çıkış Yap"
+              onPress={() => dispatch(performLogout())}
+              color={Colors.RED}
+              icon={<Logout stroke={Colors.WHITE} width={18} height={18} />}
+            />
+          </View>
         </View>
-        <View style={styles.infoRow}>
-          <Text selectable style={styles.label}>
-            Kısa Ad:
-          </Text>
-          <Text selectable style={styles.value}>
-            {userInfo?.user?.kisaad}
-          </Text>
-        </View>
-        <View style={styles.infoRow}>
-          <Text selectable style={styles.label}>
-            Renk:
-          </Text>
-          <Text selectable style={styles.value}>
-            {userInfo?.user?.renk}
-          </Text>
-        </View>
-        <View style={styles.separator} />
-        <Text selectable style={styles.sectionTitle}>
-          Ek Bilgiler
-        </Text>
-        <View style={styles.infoRow}>
-          <Text selectable style={styles.label}>
-            Hesap Oluşturma:
-          </Text>
-          <Text selectable style={styles.value}>
-            {formatDate(userInfo?.user?.CRDate)}
-          </Text>
-        </View>
-        {/* Logout Butonu */}
-        <View style={styles.logoutWrapper}>
-          <CustomButton
-            title="Çıkış Yap"
-            onPress={() => dispatch(performLogout())}
-            color={Colors.RED}
-            icon={<Logout stroke={Colors.WHITE} width={18} height={18} />}
-          />
-        </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
