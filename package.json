@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "prebuild": "node scripts/replaceNetworkConfig.js && node scripts/replaceIOSConfig.js",
-    "android": "npm run prebuild && react-native run-android",
-    "ios": "npm run prebuild && react-native run-ios",
+    "android": "npm run prebuild && npx react-native run-android",
+    "ios": "npm run prebuild && npx react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
